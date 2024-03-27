@@ -73,12 +73,64 @@ export function App() {
                   <TableCell>Produto {i}</TableCell>
                   <TableCell>R$ 125,00</TableCell>
                   <TableCell>
-                    <Button variant={"link"}>
-                      <Edit className="w-4 h-4 mr-2">Editar</Edit>
-                    </Button>
-                    <Button variant={"link"}>
-                      <Trash2 className="w-4 h-4 mr-2">Excluir</Trash2>
-                    </Button>
+
+                    <Dialog>
+                        <DialogTrigger asChild>
+                          <Button variant={"link"}>
+                            <Edit className="w-4 h-4 mr-2">Editar</Edit>
+                          </Button>
+                        </DialogTrigger>
+
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogTitle className="font-bold">Editar Produto</DialogTitle>
+                          </DialogHeader>
+
+                          <form className="space-y-6">
+                            <div className="grid grid-cols-4 itens-center text-right gap-3">
+                              <Label htmlFor="name">Produto</Label>
+                              <Input className="col-span-3" id="name"/>
+                            </div>
+
+                            <div className="grid grid-cols-4 itens-center text-right gap-3">
+                              <Label htmlFor="price">Preço</Label>
+                              <Input className="col-span-3" id="price"/>
+                            </div>
+                          </form>
+
+                          <DialogFooter className="mt-3">
+                            <DialogClose asChild>
+                              <Button type="button" variant={"outline"}>Cancelar</Button>
+                            </DialogClose>
+                            <Button type="submit">Salvar</Button>
+                          </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
+
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant={"link"}>
+                          <Trash2 className="w-4 h-4 mr-2">Excluir</Trash2>
+                      </Button>
+                      </DialogTrigger>
+
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogDescription className="font-bold">
+                            Deseja excluir este item ?
+                          </DialogDescription>
+
+                          <DialogFooter className="mt-3">
+                            <DialogClose asChild>
+                              <Button type="button" variant={"outline"}>Cancelar</Button>
+                            </DialogClose>
+                            <DialogClose>
+                              <Button type="submit">Excluir</Button>
+                            </DialogClose>
+                          </DialogFooter>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
                   </TableCell>
                 </TableRow>
               )
