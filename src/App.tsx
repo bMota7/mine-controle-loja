@@ -1,6 +1,6 @@
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
-import { Search, PlusCircle } from "lucide-react";
+import { Search, PlusCircle, Edit, Trash2 } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/ui/table";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@radix-ui/react-dialog";
 import { DialogFooter, DialogHeader } from "./components/ui/dialog";
@@ -72,6 +72,14 @@ export function App() {
                   <TableCell>230976</TableCell>
                   <TableCell>Produto {i}</TableCell>
                   <TableCell>R$ 125,00</TableCell>
+                  <TableCell>
+                    <Button variant={"link"}>
+                      <Edit className="w-4 h-4 mr-2">Editar</Edit>
+                    </Button>
+                    <Button variant={"link"}>
+                      <Trash2 className="w-4 h-4 mr-2">Excluir</Trash2>
+                    </Button>
+                  </TableCell>
                 </TableRow>
               )
             })}
